@@ -33,8 +33,9 @@ function showEnterCity(response) {
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   document.querySelector("#faringates").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML =
-      Math.round(response.data.main.temp) * (9 / 5) + 32;
+    document.querySelector("#temperature").innerHTML = Math.round(
+      response.data.main.temp * (9 / 5) + 32
+    );
   });
   document.querySelector("#celsius").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
@@ -75,8 +76,9 @@ function showCurTempOnClick(response) {
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   document.querySelector("#faringates").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML =
-      Math.round(response.data.main.temp) * (9 / 5) + 32;
+    document.querySelector("#temperature").innerHTML = Math.round(
+      response.data.main.temp * (9 / 5) + 32
+    );
   });
   document.querySelector("#celsius").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
