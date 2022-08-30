@@ -17,6 +17,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
+        <img class="logo" src="images/logo.jpg" width="100px" />
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-9">
@@ -74,23 +75,75 @@
           </div>
           <div class="col-6">
             <ul>
-              <li>Precipitation: 0%</li>
               <li id="humidity">Humidity: 77%</li>
               <li id="wind">Wind: 8 km/h</li>
             </ul>
           </div>
         </div>
+        <div class="WeatherForecast row">
+          <div class="col">
+            <div class="WeatherForecastPreview">
+              <div class="forecast-time">Tue</div>
+              <canvas width="38" height="38"></canvas>
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">30°</span
+                ><span class="forecast-temperature-min">22°</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="WeatherForecastPreview">
+              <div class="forecast-time">Wed</div>
+              <canvas width="38" height="38"></canvas>
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">29°</span
+                ><span class="forecast-temperature-min">21°</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="WeatherForecastPreview">
+              <div class="forecast-time">Thu</div>
+              <canvas width="38" height="38"></canvas>
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">28°</span
+                ><span class="forecast-temperature-min">22°</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="WeatherForecastPreview">
+              <div class="forecast-time">Fri</div>
+              <canvas width="38" height="38"></canvas>
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">26°</span
+                ><span class="forecast-temperature-min">19°</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="WeatherForecastPreview">
+              <div class="forecast-time">Sat</div>
+              <canvas width="38" height="38"></canvas>
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">26°</span
+                ><span class="forecast-temperature-min">21°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="fio">
+          <a
+            href="https://github.com/AngyUg/wether-app-project"
+            class="fio"
+            id="pas"
+            >my open source-code on GitHub</a
+          >
+        </div>
       </div>
     </div>
-    <span class="fio"
-      ><a
-        href="https://github.com/AngyUg/wether-app-project"
-        class="fio"
-        id="pas"
-        >open source-code</a
-      >
-      by AngyUg</span
-    >
+
     <script src="src/index.js"></script>
   </body>
 </html>

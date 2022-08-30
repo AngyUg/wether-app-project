@@ -63,11 +63,24 @@ li {
 }
 
 .fio {
-  font-size: 15px;
-  color: rgba(17, 9, 9, 0.541);
-  font-family: monospace;
+  font-size: 14px;
+  margin-top: 20px;
+  line-height: 18px;
+  text-align: left;
+  color: rgba(39, 33, 66, 0.4);
 }
 #pas {
-  margin-left: 850px;
   color: rgba(42, 42, 95, 0.792);
+}
+.WeatherForecast {
+  text-align: center;
+  margin: 40px 0;
+  border-bottom: 1px solid #f9f7fe;
+  padding-bottom: 50px;
+}
+
+.logo {
+  max-width: 150px;
+  display: block;
+  margin-bottom: 10px;
 }
