@@ -76,7 +76,9 @@ li {
   text-align: center;
   margin: 40px 0;
   border-bottom: 1px solid #f9f7fe;
-  padding-bottom: 50px;
+
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .logo {
