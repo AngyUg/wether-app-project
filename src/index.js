@@ -99,11 +99,7 @@ function showPosition(position) {
 
   axios.get(url).then(showCurTempOnClick);
 }
-
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
-let button = document.querySelector("#curr-button");
-button.addEventListener("click", getCurrentPosition);
-//block of where I am
+getCurrentPosition();

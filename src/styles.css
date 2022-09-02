@@ -85,14 +85,6 @@ li {
 .search-form {
   margin-bottom: 20px;
 }
-#curr-button {
-  display: inline-block;
-  margin-left: 448.4px;
-  margin-top: 4px;
-  position: relative;
-  background-color: darkturquoise;
-  border-color: darkturquoise;
-}
 
 .fio {
   font-size: 14px;
