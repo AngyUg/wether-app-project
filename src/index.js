@@ -31,6 +31,10 @@ function showEnterCity(response) {
   wind.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let feelTemp = document.querySelector("#feelTemp");
+  feelTemp.innerHTML = `Feels like: ${Math.round(
+    response.data.main.feels_like
+  )}°`;
   document.querySelector("#faringates").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
     document.querySelector("#temperature").innerHTML = Math.round(
@@ -74,6 +78,10 @@ function showCurTempOnClick(response) {
   wind.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let feelTemp = document.querySelector("#feelTemp");
+  feelTemp.innerHTML = `Feels like: ${Math.round(
+    response.data.main.feels_like
+  )}°`;
   document.querySelector("#faringates").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
     document.querySelector("#temperature").innerHTML = Math.round(

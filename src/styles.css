@@ -2,6 +2,21 @@ body {
   font-family: arial, sans-serif;
   background: #f0fff6;
 }
+
+.weather-app {
+  max-width: 600px;
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  padding: 40px;
+  color: #878787;
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
 #input-type-city {
   background: #f0fff6;
   border: none;
@@ -15,7 +30,7 @@ body {
 }
 
 #search-btn {
-  background: #487a5cdf;
+  background: #528e6ab2;
   font-weight: 700;
   font-size: 16px;
   padding: 15px 0;
@@ -26,14 +41,6 @@ body {
   background: #78c898df;
 }
 
-.weather-app {
-  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
-  padding: 40px;
-  color: #878787;
-}
 h1 {
   color: #7c7c7c;
   font-size: 24px;
@@ -54,14 +61,6 @@ li {
   height: 19px;
   line-height: 1;
   list-style: none;
-}
-
-.weather-app {
-  border: 1px solid #dadde1;
-  padding: 15px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 600px;
 }
 
 .weather-icon {
