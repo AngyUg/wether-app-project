@@ -22,7 +22,12 @@ function currentTemperature() {
 function showEnterCity(response) {
   console.log(response);
   let h1 = document.querySelector("#current-city");
-  h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  if (response.data.sys.country === "UA") {
+    h1.innerHTML = `${response.data.name} - glory to Ukraine!`;
+  } else {
+    h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  }
+
   let weatherConditions = document.querySelector("#weather-conditions");
   weatherConditions.innerHTML = response.data.weather[0].description;
 
@@ -97,6 +102,11 @@ form.addEventListener("submit", search);
 function showCurTempOnClick(response) {
   console.log(response);
   let h1 = document.querySelector("#current-city");
+  if (response.data.sys.country === "UA") {
+    h1.innerHTML = `${response.data.name} - glory to Ukraine!`;
+  } else {
+    h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  }
   h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   let weatherConditions = document.querySelector("#weather-conditions");
   weatherConditions.innerHTML = response.data.weather[0].description;
