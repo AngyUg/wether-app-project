@@ -5,8 +5,8 @@ function currentDayTime() {
     minute: "2-digit",
     hour12: false,
   });
-  let paragraph = document.querySelector("li.daytime");
-  paragraph.textContent = now;
+  let seeDayTime = document.querySelector("#daytime");
+  seeDayTime.textContent = now;
 }
 currentDayTime();
 function currentTemperature() {
@@ -21,10 +21,38 @@ function currentTemperature() {
 
 function showEnterCity(response) {
   console.log(response);
-  let h1 = document.querySelector("#id-h1");
+  let h1 = document.querySelector("#current-city");
   h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  let feelings = document.querySelector("#feelings");
-  feelings.innerHTML = response.data.weather[0].description;
+  let weatherConditions = document.querySelector("#weather-conditions");
+  weatherConditions.innerHTML = response.data.weather[0].description;
+
+  let mainIc = response.data.weather[0].icon;
+  linkWeath = `http://openweathermap.org/img/wn/${mainIc}@2x.png`;
+  let mainWeatherIcon = document.querySelector("#main-weather-icon");
+  mainWeatherIcon.setAttribute("src", linkWeath);
+
+  let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
+    "en-us",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }
+  );
+  let sunriseTimeShow = document.querySelector("#sunrise");
+  sunriseTimeShow.innerHTML = sunrise;
+
+  let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
+    "en-us",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }
+  );
+  let sunsetTimeShow = document.querySelector("#sunset");
+  sunsetTimeShow.innerHTML = sunset;
+
   let curTemperature = document.querySelector("#temperature");
   curTemperature.innerHTML = Math.round(response.data.main.temp);
   let wind = document.querySelector("#wind");
@@ -35,6 +63,7 @@ function showEnterCity(response) {
   feelTemp.innerHTML = `Feels like: ${Math.round(
     response.data.main.feels_like
   )}°`;
+
   document.querySelector("#faringates").addEventListener("click", function () {
     let curTemperature = document.querySelector("#temperature");
     document.querySelector("#temperature").innerHTML = Math.round(
@@ -67,14 +96,40 @@ form.addEventListener("submit", search);
 //block of where I am
 function showCurTempOnClick(response) {
   console.log(response);
-  let h1 = document.querySelector("#id-h1");
+  let h1 = document.querySelector("#current-city");
   h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  let feelings = document.querySelector("#feelings");
-  feelings.innerHTML = response.data.weather[0].description;
+  let weatherConditions = document.querySelector("#weather-conditions");
+  weatherConditions.innerHTML = response.data.weather[0].description;
   let curTemperature = document.querySelector("#temperature");
   curTemperature.innerHTML = Math.round(response.data.main.temp);
 
-  let wind = document.querySelector("#wind");
+  let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
+    "en-us",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }
+  );
+  let sunriseTimeShow = document.querySelector("#sunrise");
+  sunriseTimeShow.innerHTML = sunrise;
+
+  let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
+    "en-us",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }
+  );
+  let sunsetTimeShow = document.querySelector("#sunset");
+  sunsetTimeShow.innerHTML = sunset;
+
+  let mainIc = response.data.weather[0].icon;
+  linkWeath = `http://openweathermap.org/img/wn/${mainIc}@2x.png`;
+  let mainWeatherIcon = document.querySelector("#main-weather-icon");
+  mainWeatherIcon.setAttribute("src", linkWeath);
+
   wind.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;

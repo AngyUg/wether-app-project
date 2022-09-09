@@ -40,11 +40,20 @@
             </div>
           </div>
         </form>
-        <h1 id="id-h1">Sydney NSW, Australia</h1>
-        <ul>
-          <li class="daytime">Wednesday 22:00</li>
-          <li id="feelings">Partly Cloudy</li>
-        </ul>
+        <div class="row">
+          <div class="col-6">
+            <h1 id="current-city">City</h1>
+            <ul>
+              <li id="daytime"></li>
+
+              <li id="weather-conditions">outside</li>
+            </ul>
+          </div>
+          <div class="col-6" id="sunrise-sunset-block">
+            <li>Sunrise at: <span id="sunrise"></span></li>
+            <li>Sunset at: <span id="sunset"></span></li>
+          </div>
+        </div>
         <div class="row">
           <div class="col-6">
             <div class="clearfix">
@@ -52,9 +61,10 @@
                 src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                 alt="Cloudy icon"
                 class="weather-icon float-left"
+                id="main-weather-icon"
               />
               <div class="float-left">
-                <span class="temperature" id="temperature">19</span
+                <span class="temperature" id="temperature"></span
                 ><span class="units"
                   ><a href="#" id="celsius">°C</a> |
                   <a href="#" id="faringates">°F</a></span
@@ -64,9 +74,9 @@
           </div>
           <div class="col-6">
             <ul>
-              <li id="humidity">Humidity: 77%</li>
-              <li id="wind">Wind: 8 km/h</li>
-              <li id="feelTemp">Feels like: 3°</li>
+              <li id="humidity">Humidity:</li>
+              <li id="wind">Wind:</li>
+              <li id="feelTemp">Feels like:</li>
             </ul>
           </div>
         </div>
