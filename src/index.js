@@ -8,7 +8,7 @@ function currentDayTime() {
   let seeDayTime = document.querySelector("#daytime");
   seeDayTime.textContent = now;
 }
-
+currentDayTime();
 function showEnterCity(response) {
   console.log(response);
 
