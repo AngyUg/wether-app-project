@@ -23,7 +23,7 @@ function showEnterCity(response) {
   weatherConditions.innerHTML = response.data.weather[0].description;
 
   let mainIc = response.data.weather[0].icon;
-  linkWeath = `http://openweathermap.org/img/wn/${mainIc}@2x.png`;
+  linkWeath = `https://openweathermap.org/img/wn/${mainIc}@2x.png`;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
   mainWeatherIcon.setAttribute("src", linkWeath);
 
@@ -132,7 +132,7 @@ function showCurTempOnClick(response) {
   sunsetTimeShow.innerHTML = sunset;
 
   let mainIc = response.data.weather[0].icon;
-  linkWeath = `http://openweathermap.org/img/wn/${mainIc}@2x.png`;
+  linkWeath = `https://openweathermap.org/img/wn/${mainIc}@2x.png`;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
   mainWeatherIcon.setAttribute("src", linkWeath);
 
