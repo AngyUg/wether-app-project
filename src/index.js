@@ -8,16 +8,6 @@ function currentDayTime() {
   let seeDayTime = document.querySelector("#daytime");
   seeDayTime.textContent = now;
 }
-currentDayTime();
-function currentTemperature() {
-  document.querySelector("#celsius").addEventListener("click", function () {
-    document.querySelector("#temperature").innerHTML = "19";
-  });
-
-  document.querySelector("#faringates").addEventListener("click", function () {
-    document.querySelector("#temperature").innerHTML = "66";
-  });
-}
 
 function showEnterCity(response) {
   console.log(response);
@@ -70,17 +60,21 @@ function showEnterCity(response) {
     response.data.main.feels_like
   )}°`;
 
-  document.querySelector("#faringates").addEventListener("click", function () {
+  let faringLink = document.querySelector("#faringates");
+  faringLink.addEventListener("click", function () {
+    celsLink.classList.remove("active");
+    faringLink.classList.add("active");
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML = Math.round(
+    curTemperature.innerHTML = Math.round(
       response.data.main.temp * (9 / 5) + 32
     );
   });
-  document.querySelector("#celsius").addEventListener("click", function () {
+  let celsLink = document.querySelector("#celsius");
+  celsLink.addEventListener("click", function () {
+    faringLink.classList.remove("active");
+    celsLink.classList.add("active");
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML = Math.round(
-      response.data.main.temp
-    );
+    curTemperature.innerHTML = Math.round(response.data.main.temp);
   });
 }
 
@@ -149,19 +143,25 @@ function showCurTempOnClick(response) {
   feelTemp.innerHTML = `Feels like: ${Math.round(
     response.data.main.feels_like
   )}°`;
-  document.querySelector("#faringates").addEventListener("click", function () {
+
+  let faringLink = document.querySelector("#faringates");
+  faringLink.addEventListener("click", function () {
+    celsLink.classList.remove("active");
+    faringLink.classList.add("active");
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML = Math.round(
+    curTemperature.innerHTML = Math.round(
       response.data.main.temp * (9 / 5) + 32
     );
   });
-  document.querySelector("#celsius").addEventListener("click", function () {
+  let celsLink = document.querySelector("#celsius");
+  celsLink.addEventListener("click", function () {
+    faringLink.classList.remove("active");
+    celsLink.classList.add("active");
     let curTemperature = document.querySelector("#temperature");
-    document.querySelector("#temperature").innerHTML = Math.round(
-      response.data.main.temp
-    );
+    curTemperature.innerHTML = Math.round(response.data.main.temp);
   });
 }
+
 function showPosition(position) {
   console.log(position);
   let lat = position.coords.latitude;

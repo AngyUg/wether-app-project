@@ -125,3 +125,18 @@ li {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.weather-temperature .units {
+  position: relative;
+  font-size: 14px;
+  top: -34px;
+}
+
+.weather-temperature .active {
+  color: #8a559f;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
