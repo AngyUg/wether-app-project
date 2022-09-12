@@ -140,3 +140,8 @@ li {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+
+#oneDay {
+  padding-left: 30px;
+  padding-right: 30px;
+}

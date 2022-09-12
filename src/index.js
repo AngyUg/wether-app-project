@@ -94,9 +94,9 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 //block of where I am
+
 function showCurTempOnClick(response) {
   console.log(response);
-
   let h1 = document.querySelector("#current-city");
   if (response.data.sys.country === "UA") {
     h1.innerHTML = `${response.data.name} - glory to Ukraine!`;
@@ -178,3 +178,30 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 getCurrentPosition();
+
+//5 days temperature start
+function currFutureTemperature() {
+  let futureTemperature = document.querySelector("#futureTemperature");
+  let forecastHTML = `<div class="row">`;
+  let days = ["mon", "tue", "wed", "thu", "fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `    
+<div class="col" id="oneDay">
+  <div class="forecast-day">${day}</div>
+    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+      alt="" width="36"/>
+    <div class="forecast-temperature">
+      <span class="forecast-temperature-max">30° </span>
+      <span class="forecast-temperature-min">22°</span>
+  </div>
+</div>
+`;
+    forecastHTML = forecastHTML + `</div>`;
+  });
+
+  futureTemperature.innerHTML = forecastHTML;
+}
+currFutureTemperature();
+//5 days temperature end
