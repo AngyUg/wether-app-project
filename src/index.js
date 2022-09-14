@@ -72,22 +72,22 @@ function showEnterCity(response) {
     response.data.main.feels_like
   )}°`;
 
-  let faringLink = document.querySelector("#faringates");
-  faringLink.addEventListener("click", function () {
-    celsLink.classList.remove("active");
-    faringLink.classList.add("active");
-    let curTemperature = document.querySelector("#temperature");
-    curTemperature.innerHTML = Math.round(
-      response.data.main.temp * (9 / 5) + 32
-    );
-  });
-  let celsLink = document.querySelector("#celsius");
-  celsLink.addEventListener("click", function () {
-    faringLink.classList.remove("active");
-    celsLink.classList.add("active");
-    let curTemperature = document.querySelector("#temperature");
-    curTemperature.innerHTML = Math.round(response.data.main.temp);
-  });
+  // let faringLink = document.querySelector("#faringates");
+  // faringLink.addEventListener("click", function () {
+  //  celsLink.classList.remove("active");
+  //  faringLink.classList.add("active");
+  //  let curTemperature = document.querySelector("#temperature");
+  //  curTemperature.innerHTML = Math.round(
+  //   response.data.main.temp * (9 / 5) + 32
+  //  );
+  // });
+  //let celsLink = document.querySelector("#celsius");
+  //celsLink.addEventListener("click", function () {
+  //  faringLink.classList.remove("active");
+  // celsLink.classList.add("active");
+  // let curTemperature = document.querySelector("#temperature");
+  // curTemperature.innerHTML = Math.round(response.data.main.temp);
+  // });
   getWeatherFuture(response.data.coord);
 }
 
@@ -157,22 +157,22 @@ function showCurTempOnClick(response) {
     response.data.main.feels_like
   )}°`;
 
-  let faringLink = document.querySelector("#faringates");
-  faringLink.addEventListener("click", function () {
-    celsLink.classList.remove("active");
-    faringLink.classList.add("active");
-    let curTemperature = document.querySelector("#temperature");
-    curTemperature.innerHTML = Math.round(
-      response.data.main.temp * (9 / 5) + 32
-    );
-  });
-  let celsLink = document.querySelector("#celsius");
-  celsLink.addEventListener("click", function () {
-    faringLink.classList.remove("active");
-    celsLink.classList.add("active");
-    let curTemperature = document.querySelector("#temperature");
-    curTemperature.innerHTML = Math.round(response.data.main.temp);
-  });
+  // let faringLink = document.querySelector("#faringates");
+  // faringLink.addEventListener("click", function () {
+  //  celsLink.classList.remove("active");
+  //  faringLink.classList.add("active");
+  //  let curTemperature = document.querySelector("#temperature");
+  // curTemperature.innerHTML = Math.round(
+  //   response.data.main.temp * (9 / 5) + 32
+  //  );
+  // });
+  //let celsLink = document.querySelector("#celsius");
+  //celsLink.addEventListener("click", function () {
+  //faringLink.classList.remove("active");
+  // celsLink.classList.add("active");
+  // let curTemperature = document.querySelector("#temperature");
+  // curTemperature.innerHTML = Math.round(response.data.main.temp);
+  // });
   getWeatherFuture(response.data.coord);
 }
 
