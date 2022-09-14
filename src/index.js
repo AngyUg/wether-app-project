@@ -8,6 +8,17 @@ function currentDayTime() {
   let seeDayTime = document.querySelector("#daytime");
   seeDayTime.textContent = now;
 }
+
+function getWeatherFuture(coordinates) {
+  console.log(coordinates.lat);
+  console.log(coordinates.lon);
+  //key for future 5 days weather
+  let apiKey = "562f5cd9cac04a0ceac338ac4e531d8c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(currFutureTemperature);
+}
+
 currentDayTime();
 function showEnterCity(response) {
   console.log(response);
@@ -76,6 +87,7 @@ function showEnterCity(response) {
     let curTemperature = document.querySelector("#temperature");
     curTemperature.innerHTML = Math.round(response.data.main.temp);
   });
+  getWeatherFuture(response.data.coord);
 }
 
 function search(event) {
@@ -170,6 +182,7 @@ function showPosition(position) {
   let apiKey = "8f8d5f703465caae3978b75cf8f80c67";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let url = `${apiEndPoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+
   console.log(url);
 
   axios.get(url).then(showCurTempOnClick);
@@ -180,10 +193,28 @@ function getCurrentPosition() {
 getCurrentPosition();
 
 //5 days temperature start
-function currFutureTemperature() {
+function currFutureTemperature(response) {
+  console.log(response);
+  console.log(new Date(response.data.daily[1].dt * 1000));
   let futureTemperature = document.querySelector("#futureTemperature");
   let forecastHTML = `<div class="row">`;
-  let days = ["mon", "tue", "wed", "thu", "fri"];
+  let days = [
+    new Date(response.data.daily[1].dt * 1000).toLocaleDateString("en-us", {
+      weekday: "short",
+    }),
+    new Date(response.data.daily[2].dt * 1000).toLocaleDateString("en-us", {
+      weekday: "short",
+    }),
+    new Date(response.data.daily[3].dt * 1000).toLocaleDateString("en-us", {
+      weekday: "short",
+    }),
+    new Date(response.data.daily[4].dt * 1000).toLocaleDateString("en-us", {
+      weekday: "short",
+    }),
+    new Date(response.data.daily[5].dt * 1000).toLocaleDateString("en-us", {
+      weekday: "short",
+    }),
+  ];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -193,8 +224,8 @@ function currFutureTemperature() {
     <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
       alt="" width="36"/>
     <div class="forecast-temperature">
-      <span class="forecast-temperature-max">30° </span>
-      <span class="forecast-temperature-min">22°</span>
+      <span class="forecast-temperature-max" id="tempMax">30° </span>
+      <span class="forecast-temperature-min" id="tempMin">22°</span>
   </div>
 </div>
 `;
@@ -203,5 +234,5 @@ function currFutureTemperature() {
 
   futureTemperature.innerHTML = forecastHTML;
 }
-currFutureTemperature();
+
 //5 days temperature end
