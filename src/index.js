@@ -172,6 +172,7 @@ function showCurTempOnClick(response) {
     let curTemperature = document.querySelector("#temperature");
     curTemperature.innerHTML = Math.round(response.data.main.temp);
   });
+  getWeatherFuture(response.data.coord);
 }
 
 function showPosition(position) {
