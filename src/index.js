@@ -12,7 +12,8 @@ function currentDayTime() {
 function getWeatherFuture(coordinates) {
   let units = "metric";
   //key for future 5 days weather
-  let apiKey = "562f5cd9cac04a0ceac338ac4e531d8c";
+  //let apiKey = "562f5cd9cac04a0ceac338ac4e531d8c";
+  let apiKey = "bc2cd97eaa209e7d22d8f3c84081655f";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/onecall";
   let apiUrl = `${apiEndPoint}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   console.log(apiUrl);
@@ -198,7 +199,7 @@ function currFutureTemperature(response) {
   console.log(response);
   let forecastDays = response.data.daily;
   let futureTemperature = document.querySelector("#futureTemperature");
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row" id="rowForDays">`;
 
   forecastDays.forEach(function (forecastDay, index) {
     if (index < 6 && index != 0)

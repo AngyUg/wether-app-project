@@ -140,8 +140,12 @@ li {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+#rowForDays {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
-#oneDay {
-  padding-left: 30px;
-  padding-right: 30px;
+#futureTemperature #oneDay {
+  padding-left: 25px;
+  padding-right: 25px;
 }
