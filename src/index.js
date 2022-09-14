@@ -48,7 +48,7 @@ function showEnterCity(response) {
     }
   );
   let sunriseTimeShow = document.querySelector("#sunrise");
-  sunriseTimeShow.innerHTML = sunrise;
+  sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
 
   let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
     "en-us",
@@ -59,10 +59,12 @@ function showEnterCity(response) {
     }
   );
   let sunsetTimeShow = document.querySelector("#sunset");
-  sunsetTimeShow.innerHTML = sunset;
+  sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
 
   let curTemperature = document.querySelector("#temperature");
   curTemperature.innerHTML = Math.round(response.data.main.temp);
+  let c = document.querySelector("#celsius");
+  c.innerHTML = "°C";
   let wind = document.querySelector("#wind");
   wind.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
   let humidity = document.querySelector("#humidity");
@@ -121,6 +123,8 @@ function showCurTempOnClick(response) {
   weatherConditions.innerHTML = response.data.weather[0].description;
   let curTemperature = document.querySelector("#temperature");
   curTemperature.innerHTML = Math.round(response.data.main.temp);
+  let c = document.querySelector("#celsius");
+  c.innerHTML = "°C";
 
   let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
     "en-us",
@@ -131,7 +135,7 @@ function showCurTempOnClick(response) {
     }
   );
   let sunriseTimeShow = document.querySelector("#sunrise");
-  sunriseTimeShow.innerHTML = sunrise;
+  sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
 
   let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
     "en-us",
@@ -142,7 +146,7 @@ function showCurTempOnClick(response) {
     }
   );
   let sunsetTimeShow = document.querySelector("#sunset");
-  sunsetTimeShow.innerHTML = sunset;
+  sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
 
   let mainIc = response.data.weather[0].icon;
   linkWeath = `https://openweathermap.org/img/wn/${mainIc}@2x.png`;
@@ -215,9 +219,9 @@ function currFutureTemperature(response) {
     }@2x.png"
       alt="" width="60"/>
     <div class="forecast-temperature">
-      <span class="forecast-temperature-max" id="tempMax">${Math.round(
+      <span class="forecast-temperature-max" id="tempMax"><strong>${Math.round(
         forecastDay.temp.max
-      )}° </span>
+      )}° </strong></span>
       <span class="forecast-temperature-min" id="tempMin">${Math.round(
         forecastDay.temp.min
       )}°</span>
