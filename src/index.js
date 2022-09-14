@@ -10,11 +10,11 @@ function currentDayTime() {
 }
 
 function getWeatherFuture(coordinates) {
-  console.log(coordinates.lat);
-  console.log(coordinates.lon);
+  let units = "metric";
   //key for future 5 days weather
   let apiKey = "562f5cd9cac04a0ceac338ac4e531d8c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiEndPoint = "https://api.openweathermap.org/data/2.5/onecall";
+  let apiUrl = `${apiEndPoint}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   console.log(apiUrl);
   axios.get(apiUrl).then(currFutureTemperature);
 }
@@ -196,37 +196,29 @@ getCurrentPosition();
 //5 days temperature start
 function currFutureTemperature(response) {
   console.log(response);
-  console.log(new Date(response.data.daily[1].dt * 1000));
+  let forecastDays = response.data.daily;
   let futureTemperature = document.querySelector("#futureTemperature");
   let forecastHTML = `<div class="row">`;
-  let days = [
-    new Date(response.data.daily[1].dt * 1000).toLocaleDateString("en-us", {
-      weekday: "short",
-    }),
-    new Date(response.data.daily[2].dt * 1000).toLocaleDateString("en-us", {
-      weekday: "short",
-    }),
-    new Date(response.data.daily[3].dt * 1000).toLocaleDateString("en-us", {
-      weekday: "short",
-    }),
-    new Date(response.data.daily[4].dt * 1000).toLocaleDateString("en-us", {
-      weekday: "short",
-    }),
-    new Date(response.data.daily[5].dt * 1000).toLocaleDateString("en-us", {
-      weekday: "short",
-    }),
-  ];
-  days.forEach(function (day) {
+
+  forecastDays.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `    
 <div class="col" id="oneDay">
-  <div class="forecast-day">${day}</div>
-    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+  <div class="forecast-day">${new Date(
+    forecastDay.dt * 1000
+  ).toLocaleDateString("en-us", { weekday: "short" })}</div>
+    <img src="https://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png"
       alt="" width="36"/>
     <div class="forecast-temperature">
-      <span class="forecast-temperature-max" id="tempMax">30° </span>
-      <span class="forecast-temperature-min" id="tempMin">22°</span>
+      <span class="forecast-temperature-max" id="tempMax">${Math.round(
+        forecastDay.temp.max
+      )}° </span>
+      <span class="forecast-temperature-min" id="tempMin">${Math.round(
+        forecastDay.temp.min
+      )}°</span>
   </div>
 </div>
 `;
