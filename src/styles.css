@@ -114,10 +114,23 @@ li {
   font-style: normal;
   font-size: 18px;
   line-height: 1.5;
-  color: #528e6ab2;
+  /*color: #528e6ab2;*/
 }
+
+#current-city,
+#daytime,
+#weather-conditions,
+#sunrise,
+#sunset,
+#humidity,
+#wind,
+#feelTemp,
 .forecast-day {
-  color: #8a559f;
+  color: #694378d0;
+}
+#tempMax,
+#tempMin {
+  color: #69437896;
 }
 
 #sunrise-sunset-block {

@@ -211,9 +211,9 @@ function currFutureTemperature(response) {
         forecastHTML +
         `    
 <div class="col" id="oneDay">
-  <div class="forecast-day">${new Date(
+  <div class="forecast-day"><strong>${new Date(
     forecastDay.dt * 1000
-  ).toLocaleDateString("en-us", { weekday: "short" })}</div>
+  ).toLocaleDateString("en-us", { weekday: "short" })}</strong></div>
     <img src="https://openweathermap.org/img/wn/${
       forecastDay.weather[0].icon
     }@2x.png"
