@@ -200,10 +200,11 @@ function currFutureTemperature(response) {
   let futureTemperature = document.querySelector("#futureTemperature");
   let forecastHTML = `<div class="row">`;
 
-  forecastDays.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `    
+  forecastDays.forEach(function (forecastDay, index) {
+    if (index < 6 && index != 0)
+      forecastHTML =
+        forecastHTML +
+        `    
 <div class="col" id="oneDay">
   <div class="forecast-day">${new Date(
     forecastDay.dt * 1000
