@@ -213,7 +213,7 @@ function currFutureTemperature(response) {
     <img src="https://openweathermap.org/img/wn/${
       forecastDay.weather[0].icon
     }@2x.png"
-      alt="" width="36"/>
+      alt="" width="60"/>
     <div class="forecast-temperature">
       <span class="forecast-temperature-max" id="tempMax">${Math.round(
         forecastDay.temp.max
