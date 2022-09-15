@@ -27,8 +27,33 @@ function showEnterCity(response) {
   let h1 = document.querySelector("#current-city");
   if (response.data.sys.country === "UA") {
     h1.innerHTML = `${response.data.name} - glory to Ukraine!`;
+    let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
+      "en-us",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }
+    );
+    let sunriseTimeShow = document.querySelector("#sunrise");
+    sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
+
+    let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
+      "en-us",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }
+    );
+    let sunsetTimeShow = document.querySelector("#sunset");
+    sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
   } else {
     h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+    let sunsetTimeShow = document.querySelector("#sunset");
+    sunsetTimeShow.innerHTML = ``;
+    let sunriseTimeShow = document.querySelector("#sunrise");
+    sunriseTimeShow.innerHTML = ``;
   }
 
   let weatherConditions = document.querySelector("#weather-conditions");
@@ -38,28 +63,6 @@ function showEnterCity(response) {
   linkWeath = `https://openweathermap.org/img/wn/${mainIc}@2x.png`;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
   mainWeatherIcon.setAttribute("src", linkWeath);
-
-  let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
-    "en-us",
-    {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }
-  );
-  let sunriseTimeShow = document.querySelector("#sunrise");
-  sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
-
-  let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
-    "en-us",
-    {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }
-  );
-  let sunsetTimeShow = document.querySelector("#sunset");
-  sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
 
   let curTemperature = document.querySelector("#temperature");
   curTemperature.innerHTML = Math.round(response.data.main.temp);
@@ -115,8 +118,33 @@ function showCurTempOnClick(response) {
   let h1 = document.querySelector("#current-city");
   if (response.data.sys.country === "UA") {
     h1.innerHTML = `${response.data.name} - glory to Ukraine!`;
+    let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
+      "en-us",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }
+    );
+    let sunriseTimeShow = document.querySelector("#sunrise");
+    sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
+
+    let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
+      "en-us",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }
+    );
+    let sunsetTimeShow = document.querySelector("#sunset");
+    sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
   } else {
     h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+    let sunsetTimeShow = document.querySelector("#sunset");
+    sunsetTimeShow.innerHTML = ``;
+    let sunriseTimeShow = document.querySelector("#sunrise");
+    sunriseTimeShow.innerHTML = ``;
   }
 
   let weatherConditions = document.querySelector("#weather-conditions");
@@ -125,28 +153,6 @@ function showCurTempOnClick(response) {
   curTemperature.innerHTML = Math.round(response.data.main.temp);
   let c = document.querySelector("#celsius");
   c.innerHTML = "°C";
-
-  let sunrise = new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(
-    "en-us",
-    {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }
-  );
-  let sunriseTimeShow = document.querySelector("#sunrise");
-  sunriseTimeShow.innerHTML = `Sunrise at: ${sunrise}`;
-
-  let sunset = new Date(response.data.sys.sunset * 1000).toLocaleTimeString(
-    "en-us",
-    {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }
-  );
-  let sunsetTimeShow = document.querySelector("#sunset");
-  sunsetTimeShow.innerHTML = `Sunset at: ${sunset}`;
 
   let mainIc = response.data.weather[0].icon;
   linkWeath = `https://openweathermap.org/img/wn/${mainIc}@2x.png`;
